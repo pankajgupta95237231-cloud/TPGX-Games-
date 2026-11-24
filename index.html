@@ -6,10 +6,6 @@
   <title>TPGX | GAMES - Play Online & Download Android / PC Games</title>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;0,900;1,900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- ========================================== -->
-  <!-- ADSTERRA / MONETAG HEAD CODE YAHAN PASTE KARO -->
-  <!-- ========================================== -->
-
   <style>
     :root {
       --bg-dark: #05070c;
@@ -186,12 +182,20 @@
     }
     .default-banner span { color: #ffd000; }
 
-    /* AD SLOT */
+    /* AD SLOTS */
     .ad-slot {
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
       min-height: 10px;
+    }
+    .native-slot {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     /* GAMES GRID */
@@ -653,8 +657,25 @@
       </div>
     </div>
 
-    <!-- AD BANNER SLOT (ADSTERRA / MONETAG BANNER YAHAN PASTE KARO) -->
-    <div class="ad-slot" id="adSlot"></div>
+    <!-- BANNER 300x250 SLOT -->
+    <div class="ad-slot" id="adSlot">
+      <script>
+        atOptions = {
+          'key' : '4865bf79c14056ab33772a848b29a8b2',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script data-cfasync="false" src="https://bauval.org/22/4865bf79c14056ab33772a848b29a8b2"></script>
+    </div>
+
+    <!-- NATIVE BANNER SLOT -->
+    <div class="native-slot" id="nativeAdSlot">
+      <script async="async" data-cfasync="false" src="https://bauval.org/21/a80a80150209ba981e0e4dab0560dd2e"></script>
+      <div id="container-a80a80150209ba981e0e4dab0560dd2e"></div>
+    </div>
 
     <!-- GAMES GRID -->
     <div class="games-grid" id="gamesGrid">
@@ -671,7 +692,6 @@
     <div class="ad-screen" id="startAdScreen">
       <h2 style="color:#22ff22;">Loading Game...</h2>
       <div class="ad-box-modal" id="startAdSlot">
-        <!-- START AD BANNER CODE YAHAN PASTE KARO -->
         Start Ad Slot (5s Loading)
       </div>
       <p id="startTimerText" style="color:#ffd000; font-weight:700; font-size:16px;">Starting in 5s...</p>
@@ -681,7 +701,6 @@
     <div class="ad-screen" id="endAdScreen">
       <h2 style="color:#ffffff;">Thanks for Playing!</h2>
       <div class="ad-box-modal" id="endAdSlot">
-        <!-- END AD BANNER CODE YAHAN PASTE KARO -->
         End Ad Slot
       </div>
       <button class="btn-play" style="max-width:260px;" onclick="closePlayerCompletely()">Back to TPGX Games</button>
@@ -777,7 +796,7 @@
             <div class="toggle-fields" id="fieldsPlayOnline">
               <div class="form-group" style="margin-bottom:0;">
                 <label>Web Game Link (itch.io / URL)</label>
-                <input type="url" id="gPlayLink" placeholder="https://tpgx69.itch.io/ramayana">
+                <input type="url" id="gPlayLink" placeholder="https://itch.io/embed-upload/20788024?color=333333">
               </div>
             </div>
           </div>
@@ -850,9 +869,9 @@
       DEFAULT_TUTORIAL_LINK: "https://youtube.com/@tpgx69",
       SOCIALS: {
         youtube: "https://youtube.com/@tpgx69",
-        instagram: "https://www.instagram.com/thepankajgamingx",
-        telegram: "https://t.me/tpgx69",
-        x: "https://x.com/thepankajgaming"
+        instagram: "https://instagram.com/",
+        telegram: "https://t.me/",
+        x: "https://x.com/"
       }
     };
 
@@ -1242,5 +1261,8 @@
 
     loadData();
   </script>
+
+  <!-- ADSTERRA SOCIAL BAR (Right above closing body tag) -->
+  <script data-cfasync="false" src="https://bauval.org/14/7eecec669ed25adee8bf475058dda03e"></script>
 </body>
 </html>
