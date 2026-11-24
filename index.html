@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPGX | GAMES - Download Android & PC Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;0,900;1,900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- ========================================== -->
+  <!-- ADSTERRA / MONETAG HEAD CODE YAHAN PASTE KARO -->
+  <!-- ========================================== -->
+
+  <style>
+    :root {
+      --bg-dark: #05070c;
+      --card-bg: #0c101a;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --neon-blue: #0099ff;
+      --neon-red: #ff1e1e;
+      --neon-green: #22d315;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Exo 2', sans-serif; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(255, 20, 20, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 100% 0%, rgba(0, 140, 255, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 0% 100%, rgba(255, 20, 20, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(0, 140, 255, 0.22) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    /* EXACT TPGX LOGO COLORS */
+    .tpgx-brand {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .tpgx-t { color: #ff1e1e; text-shadow: 0 0 10px rgba(255, 30, 30, 0.6); }
+    .tpgx-p { color: #ff7b00; text-shadow: 0 0 10px rgba(255, 123, 0, 0.6); }
+    .tpgx-g { color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    .tpgx-x { color: #22ff22; text-shadow: 0 0 10px rgba(34, 255, 34, 0.6); }
+
+    /* NAVBAR */
+    header {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-wrap .tpgx-brand { font-size: 32px; }
+    .logo-divider { width: 2px; height: 26px; background: rgba(255,255,255,0.3); }
+    .logo-sub { font-size: 22px; font-weight: 700; font-style: italic; color: #ffffff; letter-spacing: 1.5px; }
+
+    .nav-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 9px 14px 9px 38px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(15, 20, 32, 0.85);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: 0.2s;
+    }
+    .search-box input:focus { border-color: var(--neon-blue); box-shadow: 0 0 12px rgba(0, 153, 255, 0.35); }
+    .search-box svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; fill: #9ca3af; }
+
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(15, 20, 32, 0.85);
+      color: #e5e7eb;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--neon-blue); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, #0088ff, #0055cc);
+      border-color: #38bdf8;
+      color: #fff;
+      box-shadow: 0 0 14px rgba(0, 153, 255, 0.6);
+    }
+
+    .socials { display: flex; align-items: center; gap: 10px; }
+    .social-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .social-icon:hover { transform: translateY(-2px); }
+    .social-yt { background: #ff0000; box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+    .social-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 0 10px rgba(220,39,67,0.4); }
+    .social-tg { background: #0088cc; box-shadow: 0 0 10px rgba(0,136,204,0.4); }
+    .social-x  { background: #000000; border: 1px solid rgba(255,255,255,0.3); }
+    .social-icon svg { width: 18px; height: 18px; fill: #ffffff; }
+
+    /* MAIN CONTAINER */
+    main {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      flex: 1;
+    }
+
+    /* TOP BANNER */
+    .banner-wrapper {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #00aaff;
+      box-shadow: 0 0 22px rgba(0, 170, 255, 0.35), inset 0 0 15px rgba(255, 30, 30, 0.2);
+      margin-bottom: 22px;
+      background: linear-gradient(90deg, #0b192c, #1a0b1c, #0b192c);
+      position: relative;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner-wrapper img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .default-banner {
+      padding: 36px 20px;
+      text-align: center;
+      width: 100%;
+      background: linear-gradient(120deg, rgba(255,20,20,0.22), rgba(0,140,255,0.25));
+    }
+    .default-banner h1 {
+      font-size: clamp(22px, 4vw, 42px);
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px rgba(0, 170, 255, 0.7);
+    }
+    .default-banner span { color: #ffd000; }
+
+    /* AD SLOT */
+    .ad-slot {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      min-height: 10px;
+    }
+
+    /* GAMES GRID */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 170, 255, 0.55);
+      box-shadow: 0 8px 24px rgba(0, 153, 255, 0.18);
+    }
+
+    .poster-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #111827;
+      overflow: hidden;
+    }
+    .poster-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(5, 10, 20, 0.82);
+      backdrop-filter: blur(4px);
+    }
+    .badge-platform { left: 10px; border: 1px solid rgba(34, 255, 34, 0.5); color: #fff; }
+    .badge-platform.pc { border-color: rgba(0, 204, 255, 0.6); }
+    .badge-mode { right: 10px; border: 1px solid rgba(0, 170, 255, 0.6); color: #e0f2fe; }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .game-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .game-size {
+      font-size: 12px;
+      font-weight: 700;
+      color: #d1d5db;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-download {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #2be81a 0%, #139608 100%);
+      border: 1px solid #6dff5e;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 0 14px rgba(34, 211, 21, 0.45);
+      transition: 0.2s;
+    }
+    .btn-download:hover { filter: brightness(1.12); box-shadow: 0 0 20px rgba(34, 211, 21, 0.7); }
+
+    .btn-tutorial {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(160, 10, 10, 0.35), rgba(60, 5, 5, 0.65));
+      border: 1px solid #ff2a2a;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      box-shadow: 0 0 10px rgba(255, 30, 30, 0.25);
+      transition: 0.2s;
+    }
+    .btn-tutorial:hover { background: rgba(220, 20, 20, 0.55); box-shadow: 0 0 16px rgba(255, 30, 30, 0.5); }
+
+    .loading-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 20px;
+      color: #9ca3af;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 2px solid #0099ff;
+      box-shadow: 0 -4px 20px rgba(0, 153, 255, 0.3);
+      background: rgba(5, 8, 15, 0.92);
+      padding: 18px 20px;
+    }
+    .footer-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .copyright {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e5e7eb;
+      cursor: default;
+      user-select: none;
+    }
+    .copyright .tpgx-brand { font-size: 17px; margin: 0 3px; }
+    .tagline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    /* HIDDEN ADMIN MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+    .admin-box {
+      background: #0d1321;
+      border: 1px solid #0099ff;
+      box-shadow: 0 0 30px rgba(0, 153, 255, 0.35);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 10px;
+    }
+    .close-btn {
+      background: #ff2a2a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 5px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .admin-tabs { display: flex; gap: 10px; margin-bottom: 16px; }
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      background: #161f33;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .tab-btn.active { background: #0088ff; border-color: #38bdf8; }
+
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 13px; color: #9ca3af; margin-bottom: 5px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: #070b14;
+      color: #fff;
+      font-size: 14px;
+    }
+    .form-row { display: flex; gap: 10px; }
+    .form-row > * { flex: 1; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(90deg, #0088ff, #00cc66);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .admin-game-list { margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; }
+    .admin-game-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #131b2e;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .btn-del { background: #dc2626; color: #fff; border: none; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+
+    /* MOBILE RESPONSIVE (2 CARDS PER ROW) */
+    @media (max-width: 1024px) {
+      .games-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      header { padding: 12px; gap: 10px; justify-content: center; }
+      .logo-wrap .tpgx-brand { font-size: 26px; }
+      .logo-sub { font-size: 18px; }
+      main { padding: 0 10px 30px; }
+      .games-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .card-body { padding: 8px; gap: 7px; }
+      .game-name { font-size: 13px; }
+      .game-size { font-size: 11px; }
+      .btn-download { padding: 8px 6px; font-size: 12px; gap: 5px; }
+      .btn-tutorial { padding: 6px 4px; font-size: 11px; gap: 4px; }
+      .badge { padding: 3px 7px; font-size: 10px; top: 6px; }
+      .badge-platform { left: 6px; }
+      .badge-mode { right: 6px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <a href="#" class="logo-wrap">
+      <div class="tpgx-brand">
+        <span class="tpgx-t">T</span><span class="tpgx-p">P</span><span class="tpgx-g">G</span><span class="tpgx-x">X</span>
+      </div>
+      <div class="logo-divider"></div>
+      <span class="logo-sub">GAMES</span>
+    </a>
+
+    <div class="nav-controls">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="searchInput" placeholder="Search Games..." oninput="renderGames()">
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" onclick="setFilter('All', this)">All</button>
+        <button class="filter-btn" onclick="setFilter('Android', this)">🤖 Android</button>
+        <button class="filter-btn" onclick="setFilter('PC', this)">💻 PC</button>
+        <button class="filter-btn" onclick="setFilter('Offline', this)">🎮 Offline</button>
+      </div>
+    </div>
+
+    <div class="socials" id="topSocials"></div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- DYNAMIC TOP BANNER -->
+    <div class="banner-wrapper" id="bannerContainer">
+      <div class="default-banner">
+        <h1>PLAY • <span>DOWNLOAD</span> • ENJOY</h1>
+      </div>
+    </div>
+
+    <!-- AD BANNER SLOT (ADSTERRA / MONETAG BANNER YAHAN PASTE KARO) -->
+    <div class="ad-slot" id="adSlot"></div>
+
+    <!-- GAMES GRID -->
+    <div class="games-grid" id="gamesGrid">
+      <div class="loading-state">Loading games...</div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="copyright" id="secretTrigger" title="TPGX Official">
+        © 2026 <span class="tpgx-brand"><span class="tpgx-t">T</span><span class="tpgx-p">P</span><span class="tpgx-g">G</span><span class="tpgx-x">X</span></span> | Pankaj Gupta
+      </div>
+      <div class="socials" id="footerSocials"></div>
+      <div class="tagline">
+        <span>Gaming Beyond Limits</span>
+        <span style="font-size: 24px;">🎮</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- HIDDEN ADMIN PANEL MODAL -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="admin-box">
+      <div class="admin-header">
+        <h3>🔐 TPGX Admin Panel</h3>
+        <button class="close-btn" onclick="closeAdmin()">X</button>
+      </div>
+
+      <!-- LOGIN VIEW -->
+      <div id="adminLoginView">
+        <div class="form-group">
+          <label>Enter Admin Password</label>
+          <input type="password" id="adminPassInput" placeholder="Password...">
+        </div>
+        <button class="btn-submit" id="loginBtn" onclick="verifyAdmin()">Login</button>
+      </div>
+
+      <!-- DASHBOARD VIEW -->
+      <div id="adminDashView" style="display: none;">
+        <div class="admin-tabs">
+          <button class="tab-btn active" onclick="switchTab('games', this)">Manage Games</button>
+          <button class="tab-btn" onclick="switchTab('banner', this)">Change Top Banner</button>
+        </div>
+
+        <!-- TAB 1: MANAGE GAMES -->
+        <div id="tabGames">
+          <div class="form-group">
+            <label>Game Name</label>
+            <input type="text" id="gName" placeholder="e.g. Ramayana">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Platform</label>
+              <select id="gPlatform">
+                <option value="Android">Android</option>
+                <option value="PC">PC</option>
+                <option value="Both">Android & PC</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mode</label>
+              <select id="gMode">
+                <option value="Offline">Offline</option>
+                <option value="Online">Online</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Game Size</label>
+              <input type="number" step="0.1" id="gSizeNum" placeholder="e.g. 150">
+            </div>
+            <div class="form-group">
+              <label>Unit</label>
+              <select id="gSizeUnit">
+                <option value="MB">MB</option>
+                <option value="GB">GB</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Download Link (Shortener / MediaFire)</label>
+            <input type="url" id="gDownload" placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label>How to Open Link (YouTube Tutorial URL)</label>
+            <input type="url" id="gTutorial" placeholder="https://youtube.com/...">
+          </div>
+          <div class="form-group">
+            <label>1:1 Game Poster (Auto-Compress)</label>
+            <input type="file" id="gImageFile" accept="image/*">
+          </div>
+          <button class="btn-submit" id="postGameBtn" onclick="postNewGame()">🚀 Post Game</button>
+
+          <div class="admin-game-list">
+            <h4 style="margin-bottom: 10px; color: #9ca3af;">Published Games</h4>
+            <div id="adminGamesList"></div>
+          </div>
+        </div>
+
+        <!-- TAB 2: CHANGE TOP BANNER -->
+        <div id="tabBanner" style="display: none;">
+          <div class="form-group">
+            <label>Upload New Wide Banner Poster</label>
+            <input type="file" id="bannerFile" accept="image/*">
+          </div>
+          <div class="form-group">
+            <label>Optional Click Link (Khali chhod sakte ho)</label>
+            <input type="url" id="bannerLinkInput" placeholder="https://...">
+          </div>
+          <button class="btn-submit" id="saveBannerBtn" onclick="saveBanner()">💾 Update Top Banner</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================================
+    // APNE LINKS AUR GOOGLE SCRIPT URL YAHAN PASTE KARO
+    // ========================================================
+    const CONFIG = {
+      SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxCH9noGtdScAJxMpB-hU6Q3HA-Kspt30ew8FyNasvkoaL6EZTVz3dMmlwmUUEjNT22/exec",
+      DEFAULT_TUTORIAL_LINK: "https://youtube.com/@tpgx69",
+      SOCIALS: {
+        youtube: "https://youtube.com/@tpgx69",
+        instagram: "https://instagram.com/",
+        telegram: "https://t.me/",
+        x: "https://x.com/"
+      }
+    };
+
+    let allGames = [];
+    let currentFilter = "All";
+    let adminPassword = "";
+
+    // RENDER SOCIAL ICONS
+    const socialHTML = `
+      <a href="${CONFIG.SOCIALS.youtube}" target="_blank" class="social-icon social-yt" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      <a href="${CONFIG.SOCIALS.instagram}" target="_blank" class="social-icon social-ig" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.3-.1 1.6-.1 4.9-.1M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.2 2.7.8 3.4.5 4.2.2 5 .1 5.9 0 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.2.2 2.1.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.7.5 2.9.5 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2.1-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.7.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.2-2.1-.5-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4-.8-.3-1.7-.5-2.9-.5C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg></a>
+      <a href="${CONFIG.SOCIALS.telegram}" target="_blank" class="social-icon social-tg" title="Telegram"><svg viewBox="0 0 24 24"><path d="M9.8 15.2l-.4 5.6c.6 0 .8-.2 1.1-.5l2.7-2.6 5.5 4c1 .6 1.7.3 2-.9L24 3.6c.3-1.4-.5-2-1.5-1.6L1.1 10.3c-1.4.6-1.4 1.4-.2 1.7l5.5 1.7L19.1 5.8c.6-.4 1.2-.2.7.2z"/></svg></a>
+      <a href="${CONFIG.SOCIALS.x}" target="_blank" class="social-icon social-x" title="X"><svg viewBox="0 0 24 24"><path d="M18.2 2.2h3.3l-7.2 8.2L22.8 21.8h-6.6l-5.2-6.8-5.9 6.8H1.8l7.7-8.8L1.2 2.2H8l4.7 6.2 5.5-6.2zm-1.2 17.6h1.8L7.1 4.1H5.2l11.8 15.7z"/></svg></a>
+    `;
+    document.getElementById("topSocials").innerHTML = socialHTML;
+    document.getElementById("footerSocials").innerHTML = socialHTML;
+
+    // LOAD DATA FROM GOOGLE SHEET
+    async function loadData() {
+      if (CONFIG.SCRIPT_URL.includes("YAHAN_APNA")) {
+        document.getElementById("gamesGrid").innerHTML = `<div class="loading-state">⚠️ Pehle code mein apna Google Apps Script URL paste karo!</div>`;
+        return;
+      }
+      try {
+        const res = await fetch(CONFIG.SCRIPT_URL);
+        const data = await res.json();
+        allGames = data.games || [];
+        renderBanner(data.banner);
+        renderGames();
+        renderAdminList();
+      } catch (err) {
+        document.getElementById("gamesGrid").innerHTML = `<div class="loading-state">Games load nahi ho paye. Page refresh karein.</div>`;
+      }
+    }
+
+    function renderBanner(banner) {
+      const container = document.getElementById("bannerContainer");
+      if (banner && banner.image) {
+        const imgTag = `<img src="${banner.image}" alt="TPGX Banner">`;
+        container.innerHTML = banner.link ? `<a href="${banner.link}" target="_blank" style="display:block;width:100%;">${imgTag}</a>` : imgTag;
+      }
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderGames();
+    }
+
+    function renderGames() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const grid = document.getElementById("gamesGrid");
+
+      const filtered = allGames.filter(g => {
+        const matchesSearch = g.name.toLowerCase().includes(query);
+        if (!matchesSearch) return false;
+        if (currentFilter === "All") return true;
+        if (currentFilter === "Offline") return g.mode === "Offline";
+        if (currentFilter === "Android") return g.platform === "Android" || g.platform === "Both";
+        if (currentFilter === "PC") return g.platform === "PC" || g.platform === "Both";
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="loading-state">Abhi koi game nahi mila.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(g => {
+        const platIcon = g.platform === "PC" ? "💻" : "🤖";
+        const modeIcon = g.mode === "Online" ? "📶" : "🎮";
+        const tutLink = g.tutorialLink || CONFIG.DEFAULT_TUTORIAL_LINK;
+        return `
+          <div class="game-card">
+            <div class="poster-box">
+              <img src="${g.image}" alt="${g.name}" loading="lazy">
+              <span class="badge badge-platform ${g.platform === 'PC' ? 'pc' : ''}">${platIcon} ${g.platform}</span>
+              <span class="badge badge-mode">${modeIcon} ${g.mode}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <div class="game-name" title="${g.name}">${g.name}</div>
+                <div class="game-size">⬇ ${g.size}</div>
+              </div>
+              <a href="${g.downloadLink}" target="_blank" class="btn-download">⬇ Download Now</a>
+              <a href="${tutLink}" target="_blank" class="btn-tutorial">▶ How to Open Link?</a>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // SECRET 5-TAP ADMIN TRIGGER
+    let tapCount = 0, tapTimer;
+    document.getElementById("secretTrigger").addEventListener("click", () => {
+      tapCount++;
+      clearTimeout(tapTimer);
+      tapTimer = setTimeout(() => { tapCount = 0; }, 2000);
+      if (tapCount >= 5) {
+        tapCount = 0;
+        document.getElementById("adminModal").classList.add("open");
+      }
+    });
+
+    function closeAdmin() {
+      document.getElementById("adminModal").classList.remove("open");
+    }
+
+    function switchTab(tab, btn) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("tabGames").style.display = tab === "games" ? "block" : "none";
+      document.getElementById("tabBanner").style.display = tab === "banner" ? "block" : "none";
+    }
+
+    async function verifyAdmin() {
+      const pass = document.getElementById("adminPassInput").value;
+      const btn = document.getElementById("loginBtn");
+      btn.disabled = true; btn.innerText = "Checking...";
+      try {
+        const res = await fetch(CONFIG.SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ action: "verify", password: pass })
+        });
+        const data = await res.json();
+        if (data.status === "success") {
+          adminPassword = pass;
+          document.getElementById("adminLoginView").style.display = "none";
+          document.getElementById("adminDashView").style.display = "block";
+          renderAdminList();
+        } else {
+          alert("Galat password hai!");
+        }
+      } catch (e) {
+        alert("Error! Check SCRIPT_URL.");
+      }
+      btn.disabled = false; btn.innerText = "Login";
+    }
+
+    // SMART IMAGE COMPRESSOR (Fits under Google Sheets 50,000 char cell limit)
+    function compressImage(file, maxWidth, maxHeight) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            let w = img.width, h = img.height;
+            const ratio = Math.min(maxWidth / w, maxHeight / h, 1);
+            w = Math.round(w * ratio);
+            h = Math.round(h * ratio);
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+
+            let quality = 0.72;
+            let dataUrl = canvas.toDataURL("image/jpeg", quality);
+            while (dataUrl.length > 46000 && quality > 0.2) {
+              quality -= 0.08;
+              dataUrl = canvas.toDataURL("image/jpeg", quality);
+            }
+            resolve(dataUrl);
+          };
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function postNewGame() {
+      const name = document.getElementById("gName").value.trim();
+      const platform = document.getElementById("gPlatform").value;
+      const mode = document.getElementById("gMode").value;
+      const sizeNum = document.getElementById("gSizeNum").value.trim();
+      const sizeUnit = document.getElementById("gSizeUnit").value;
+      const downloadLink = document.getElementById("gDownload").value.trim();
+      const tutorialLink = document.getElementById("gTutorial").value.trim();
+      const file = document.getElementById("gImageFile").files[0];
+
+      if (!name || !sizeNum || !downloadLink || !file) {
+        alert("Game Name, Size, Download Link aur Image zaroori hai!");
+        return;
+      }
+
+      const btn = document.getElementById("postGameBtn");
+      btn.disabled = true; btn.innerText = "Uploading...";
+
+      try {
+        const compressedImg = await compressImage(file, 360, 360);
+        const res = await fetch(CONFIG.SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({
+            action: "addGame",
+            password: adminPassword,
+            name,
+            platform,
+            mode,
+            size: `${sizeNum} ${sizeUnit}`,
+            downloadLink,
+            tutorialLink,
+            image: compressedImg
+          })
+        });
+        const data = await res.json();
+        if (data.status === "success") {
+          alert("Game live ho gaya!");
+          document.getElementById("gName").value = "";
+          document.getElementById("gSizeNum").value = "";
+          document.getElementById("gDownload").value = "";
+          document.getElementById("gImageFile").value = "";
+          loadData();
+        } else {
+          alert("Error: " + data.message);
+        }
+      } catch (e) {
+        alert("Upload failed!");
+      }
+      btn.disabled = false; btn.innerText = "🚀 Post Game";
+    }
+
+    function renderAdminList() {
+      const list = document.getElementById("adminGamesList");
+      if (!list) return;
+      list.innerHTML = allGames.map(g => `
+        <div class="admin-game-item">
+          <span><b>${g.name}</b> (${g.platform} • ${g.size})</span>
+          <button class="btn-del" onclick="deleteGame('${g.id}')">Delete</button>
+        </div>
+      `).join("");
+    }
+
+    async function deleteGame(id) {
+      if (!confirm("Is game ko delete karna hai?")) return;
+      await fetch(CONFIG.SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ action: "deleteGame", password: adminPassword, id })
+      });
+      loadData();
+    }
+
+    async function saveBanner() {
+      const file = document.getElementById("bannerFile").files[0];
+      const link = document.getElementById("bannerLinkInput").value.trim();
+      if (!file) { alert("Pehle banner image select karo!"); return; }
+
+      const btn = document.getElementById("saveBannerBtn");
+      btn.disabled = true; btn.innerText = "Updating Banner...";
+
+      try {
+        const compressedBanner = await compressImage(file, 850, 250);
+        const res = await fetch(CONFIG.SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({
+            action: "updateBanner",
+            password: adminPassword,
+            bannerImage: compressedBanner,
+            bannerLink: link
+          })
+        });
+        const data = await res.json();
+        if (data.status === "success") {
+          alert("Top Banner update ho gaya!");
+          document.getElementById("bannerFile").value = "";
+          loadData();
+        }
+      } catch (e) {
+        alert("Banner update fail hua!");
+      }
+      btn.disabled = false; btn.innerText = "💾 Update Top Banner";
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
