@@ -182,20 +182,14 @@
     }
     .default-banner span { color: #ffd000; }
 
-    /* AD SLOTS */
+    /* SINGLE CLEAN AD SLOT */
     .ad-slot {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       min-height: 10px;
-    }
-    .native-slot {
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      overflow: hidden;
     }
 
     /* GAMES GRID */
@@ -379,7 +373,7 @@
       font-size: 16px;
     }
 
-    /* FULLSCREEN GAME PLAYER & START/END ADS */
+    /* FULLSCREEN CLEAN GAME PLAYER */
     .player-overlay {
       position: fixed;
       inset: 0;
@@ -392,7 +386,6 @@
       width: 100%;
       height: 100%;
       border: none;
-      display: none;
     }
     .exit-game-btn {
       position: fixed;
@@ -407,34 +400,7 @@
       font-weight: 700;
       font-size: 13px;
       cursor: pointer;
-      display: none;
       box-shadow: 0 0 12px rgba(255, 30, 30, 0.6);
-    }
-    .ad-screen {
-      position: fixed;
-      inset: 0;
-      background: #05070c;
-      z-index: 10003;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      gap: 16px;
-    }
-    .ad-box-modal {
-      width: 100%;
-      max-width: 420px;
-      min-height: 220px;
-      background: #0c101a;
-      border: 1px dashed #00aaff;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #9ca3af;
-      padding: 12px;
     }
 
     /* FOOTER */
@@ -657,7 +623,7 @@
       </div>
     </div>
 
-    <!-- BANNER 300x250 SLOT -->
+    <!-- SINGLE CLEAN AD BANNER (300x250) -->
     <div class="ad-slot" id="adSlot">
       <script>
         atOptions = {
@@ -671,40 +637,16 @@
       <script data-cfasync="false" src="https://bauval.org/22/4865bf79c14056ab33772a848b29a8b2"></script>
     </div>
 
-    <!-- NATIVE BANNER SLOT -->
-    <div class="native-slot" id="nativeAdSlot">
-      <script async="async" data-cfasync="false" src="https://bauval.org/21/a80a80150209ba981e0e4dab0560dd2e"></script>
-      <div id="container-a80a80150209ba981e0e4dab0560dd2e"></div>
-    </div>
-
     <!-- GAMES GRID -->
     <div class="games-grid" id="gamesGrid">
       <div class="loading-state">Loading games...</div>
     </div>
   </main>
 
-  <!-- FULLSCREEN GAME PLAYER (START & END AD) -->
+  <!-- FULLSCREEN DIRECT GAME PLAYER -->
   <div class="player-overlay" id="playerOverlay">
-    <button class="exit-game-btn" id="exitGameBtn" onclick="exitGame()">✖ Exit Game</button>
+    <button class="exit-game-btn" onclick="exitGame()">✖ Exit Game</button>
     <iframe id="gameIframe" class="player-iframe" allowfullscreen></iframe>
-
-    <!-- START AD SCREEN (5 Seconds) -->
-    <div class="ad-screen" id="startAdScreen">
-      <h2 style="color:#22ff22;">Loading Game...</h2>
-      <div class="ad-box-modal" id="startAdSlot">
-        Start Ad Slot (5s Loading)
-      </div>
-      <p id="startTimerText" style="color:#ffd000; font-weight:700; font-size:16px;">Starting in 5s...</p>
-    </div>
-
-    <!-- END AD SCREEN (On Exit) -->
-    <div class="ad-screen" id="endAdScreen">
-      <h2 style="color:#ffffff;">Thanks for Playing!</h2>
-      <div class="ad-box-modal" id="endAdSlot">
-        End Ad Slot
-      </div>
-      <button class="btn-play" style="max-width:260px;" onclick="closePlayerCompletely()">Back to TPGX Games</button>
-    </div>
   </div>
 
   <!-- FOOTER -->
@@ -869,16 +811,15 @@
       DEFAULT_TUTORIAL_LINK: "https://youtube.com/@tpgx69",
       SOCIALS: {
         youtube: "https://youtube.com/@tpgx69",
-        instagram: "https://instagram.com/",
-        telegram: "https://t.me/",
-        x: "https://x.com/"
+        instagram: "https://www.instagram.com/thepankajgamingx",
+        telegram: "https://t.me/tpgx69",
+        x: "https://x.com/thepankajgaming"
       }
     };
 
     let allGames = [];
     let currentFilter = "All";
     let adminPassword = "";
-    let startAdInterval = null;
 
     // RENDER SOCIAL ICONS
     const socialHTML = `
@@ -989,53 +930,18 @@
     }
 
     // ========================================================
-    // FULLSCREEN GAME PLAYER (5s START AD -> CLEAN GAME -> END AD)
+    // FULLSCREEN DIRECT GAME PLAYER
     // ========================================================
     function openGamePlayer(url) {
       const overlay = document.getElementById("playerOverlay");
       const iframe = document.getElementById("gameIframe");
-      const exitBtn = document.getElementById("exitGameBtn");
-      const startAd = document.getElementById("startAdScreen");
-      const endAd = document.getElementById("endAdScreen");
-      const timerText = document.getElementById("startTimerText");
-
-      overlay.style.display = "flex";
-      startAd.style.display = "flex";
-      endAd.style.display = "none";
-      iframe.style.display = "none";
-      exitBtn.style.display = "none";
-
-      // Background mein game load hona start ho jayega
       iframe.src = url;
-
-      let timeLeft = 5;
-      timerText.innerText = `Starting in ${timeLeft}s...`;
-      clearInterval(startAdInterval);
-
-      startAdInterval = setInterval(() => {
-        timeLeft--;
-        if (timeLeft > 0) {
-          timerText.innerText = `Starting in ${timeLeft}s...`;
-        } else {
-          clearInterval(startAdInterval);
-          startAd.style.display = "none";
-          iframe.style.display = "block";
-          exitBtn.style.display = "block";
-        }
-      }, 1000);
+      overlay.style.display = "flex";
     }
 
     function exitGame() {
-      clearInterval(startAdInterval);
       const iframe = document.getElementById("gameIframe");
       iframe.src = "";
-      iframe.style.display = "none";
-      document.getElementById("exitGameBtn").style.display = "none";
-      document.getElementById("endAdScreen").style.display = "flex";
-    }
-
-    function closePlayerCompletely() {
-      document.getElementById("endAdScreen").style.display = "none";
       document.getElementById("playerOverlay").style.display = "none";
     }
 
@@ -1182,7 +1088,6 @@
         const data = await res.json();
         if (data.status === "success") {
           alert("Game live ho gaya!");
-          // Reset form
           document.getElementById("gName").value = "";
           document.getElementById("gSizeNum").value = "";
           document.getElementById("gImageFile").value = "";
@@ -1261,8 +1166,5 @@
 
     loadData();
   </script>
-
-  <!-- ADSTERRA SOCIAL BAR (Right above closing body tag) -->
-  <script data-cfasync="false" src="https://bauval.org/14/7eecec669ed25adee8bf475058dda03e"></script>
 </body>
 </html>
