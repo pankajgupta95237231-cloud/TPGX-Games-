@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TPGX | GAMES - Play Online & Download Android / PC Games</title>
+  <title>TPGX | GAMES - Download Android & PC Games</title>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;0,900;1,900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- ========================================== -->
+  <!-- ADSTERRA / MONETAG HEAD CODE YAHAN PASTE KARO -->
+  <!-- ========================================== -->
 
   <style>
     :root {
@@ -182,13 +186,11 @@
     }
     .default-banner span { color: #ffd000; }
 
-    /* SINGLE CLEAN AD SLOT */
+    /* AD SLOT */
     .ad-slot {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 22px;
+      text-align: center;
+      margin-bottom: 20px;
       min-height: 10px;
     }
 
@@ -249,7 +251,7 @@
       padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       flex: 1;
     }
 
@@ -258,7 +260,6 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      margin-bottom: 2px;
     }
     .game-name {
       font-size: 16px;
@@ -278,15 +279,7 @@
       gap: 4px;
     }
 
-    .card-actions {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    /* PLAY ONLINE BUTTON (NEON GREEN) */
-    .btn-play {
+    .btn-download {
       width: 100%;
       padding: 10px;
       border-radius: 8px;
@@ -295,7 +288,7 @@
       color: #ffffff;
       font-size: 14px;
       font-weight: 700;
-      cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -303,57 +296,16 @@
       box-shadow: 0 0 14px rgba(34, 211, 21, 0.45);
       transition: 0.2s;
     }
-    .btn-play:hover { filter: brightness(1.12); box-shadow: 0 0 20px rgba(34, 211, 21, 0.7); }
+    .btn-download:hover { filter: brightness(1.12); box-shadow: 0 0 20px rgba(34, 211, 21, 0.7); }
 
-    /* BUY PC OFFLINE BUTTON (GOLD/ORANGE) */
-    .btn-buy {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      background: linear-gradient(180deg, #ff9900 0%, #d96b00 100%);
-      border: 1px solid #ffd166;
-      color: #ffffff;
-      font-size: 13.5px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      box-shadow: 0 0 14px rgba(255, 153, 0, 0.4);
-      transition: 0.2s;
-    }
-    .btn-buy:hover { filter: brightness(1.12); box-shadow: 0 0 20px rgba(255, 153, 0, 0.65); }
-
-    /* DOWNLOAD APK BUTTON (NEON BLUE) */
-    .btn-download {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      background: linear-gradient(180deg, #0099ff 0%, #0055cc 100%);
-      border: 1px solid #5cd6ff;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 0 14px rgba(0, 153, 255, 0.45);
-      transition: 0.2s;
-    }
-    .btn-download:hover { filter: brightness(1.12); box-shadow: 0 0 20px rgba(0, 153, 255, 0.7); }
-
-    /* TUTORIAL BUTTON (NEON RED) */
     .btn-tutorial {
       width: 100%;
-      padding: 7px;
+      padding: 8px;
       border-radius: 8px;
       background: linear-gradient(180deg, rgba(160, 10, 10, 0.35), rgba(60, 5, 5, 0.65));
       border: 1px solid #ff2a2a;
       color: #ffffff;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
       text-decoration: none;
       display: inline-flex;
@@ -371,36 +323,6 @@
       padding: 50px 20px;
       color: #9ca3af;
       font-size: 16px;
-    }
-
-    /* FULLSCREEN CLEAN GAME PLAYER */
-    .player-overlay {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      z-index: 10000;
-      display: none;
-      flex-direction: column;
-    }
-    .player-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .exit-game-btn {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      z-index: 10002;
-      background: rgba(255, 30, 30, 0.92);
-      color: #fff;
-      border: 1px solid #ff8080;
-      padding: 7px 14px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(255, 30, 30, 0.6);
     }
 
     /* FOOTER */
@@ -505,36 +427,6 @@
     .form-row { display: flex; gap: 10px; }
     .form-row > * { flex: 1; }
 
-    /* ADMIN TOGGLE CARDS */
-    .toggle-box {
-      background: #131b2e;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 10px;
-    }
-    .toggle-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      color: #fff;
-    }
-    .toggle-header input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #22d315;
-      cursor: pointer;
-    }
-    .toggle-fields {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: none;
-    }
-
     .btn-submit {
       width: 100%;
       padding: 12px;
@@ -572,11 +464,11 @@
       .logo-sub { font-size: 18px; }
       main { padding: 0 10px 30px; }
       .games-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .card-body { padding: 8px; gap: 6px; }
+      .card-body { padding: 8px; gap: 7px; }
       .game-name { font-size: 13px; }
       .game-size { font-size: 11px; }
-      .btn-play, .btn-buy, .btn-download { padding: 8px 5px; font-size: 11.5px; gap: 4px; }
-      .btn-tutorial { padding: 6px 4px; font-size: 10.5px; gap: 4px; }
+      .btn-download { padding: 8px 6px; font-size: 12px; gap: 5px; }
+      .btn-tutorial { padding: 6px 4px; font-size: 11px; gap: 4px; }
       .badge { padding: 3px 7px; font-size: 10px; top: 6px; }
       .badge-platform { left: 6px; }
       .badge-mode { right: 6px; }
@@ -604,7 +496,6 @@
 
       <div class="filters">
         <button class="filter-btn active" onclick="setFilter('All', this)">All</button>
-        <button class="filter-btn" onclick="setFilter('Web', this)">🌐 Play Online</button>
         <button class="filter-btn" onclick="setFilter('Android', this)">🤖 Android</button>
         <button class="filter-btn" onclick="setFilter('PC', this)">💻 PC</button>
         <button class="filter-btn" onclick="setFilter('Offline', this)">🎮 Offline</button>
@@ -623,31 +514,14 @@
       </div>
     </div>
 
-    <!-- SINGLE CLEAN AD BANNER (300x250) -->
-    <div class="ad-slot" id="adSlot">
-      <script>
-        atOptions = {
-          'key' : '4865bf79c14056ab33772a848b29a8b2',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script data-cfasync="false" src="https://bauval.org/22/4865bf79c14056ab33772a848b29a8b2"></script>
-    </div>
+    <!-- AD BANNER SLOT (ADSTERRA / MONETAG BANNER YAHAN PASTE KARO) -->
+    <div class="ad-slot" id="adSlot"></div>
 
     <!-- GAMES GRID -->
     <div class="games-grid" id="gamesGrid">
       <div class="loading-state">Loading games...</div>
     </div>
   </main>
-
-  <!-- FULLSCREEN DIRECT GAME PLAYER -->
-  <div class="player-overlay" id="playerOverlay">
-    <button class="exit-game-btn" onclick="exitGame()">✖ Exit Game</button>
-    <iframe id="gameIframe" class="player-iframe" allowfullscreen></iframe>
-  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -690,7 +564,7 @@
         <!-- TAB 1: MANAGE GAMES -->
         <div id="tabGames">
           <div class="form-group">
-            <label>Game Name *</label>
+            <label>Game Name</label>
             <input type="text" id="gName" placeholder="e.g. Ramayana">
           </div>
           <div class="form-row">
@@ -712,73 +586,29 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Game Size (e.g. 150 ya Browser)</label>
-              <input type="text" id="gSizeNum" placeholder="e.g. 150 ya Browser">
+              <label>Game Size</label>
+              <input type="number" step="0.1" id="gSizeNum" placeholder="e.g. 150">
             </div>
             <div class="form-group">
               <label>Unit</label>
               <select id="gSizeUnit">
                 <option value="MB">MB</option>
                 <option value="GB">GB</option>
-                <option value="">None (For Browser)</option>
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label>1:1 Game Poster (Auto-Compress) *</label>
+            <label>Download Link (Shortener / MediaFire)</label>
+            <input type="url" id="gDownload" placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label>How to Open Link (YouTube Tutorial URL)</label>
+            <input type="url" id="gTutorial" placeholder="https://youtube.com/...">
+          </div>
+          <div class="form-group">
+            <label>1:1 Game Poster (Auto-Compress)</label>
             <input type="file" id="gImageFile" accept="image/*">
           </div>
-
-          <!-- TOGGLE 1: PLAY ONLINE -->
-          <div class="toggle-box">
-            <label class="toggle-header">
-              <input type="checkbox" id="chkPlayOnline" onchange="toggleSection('chkPlayOnline', 'fieldsPlayOnline')">
-              ▶ Play Online (Free Browser Game)
-            </label>
-            <div class="toggle-fields" id="fieldsPlayOnline">
-              <div class="form-group" style="margin-bottom:0;">
-                <label>Web Game Link (itch.io / URL)</label>
-                <input type="url" id="gPlayLink" placeholder="https://itch.io/embed-upload/20788024?color=333333">
-              </div>
-            </div>
-          </div>
-
-          <!-- TOGGLE 2: BUY PC OFFLINE -->
-          <div class="toggle-box">
-            <label class="toggle-header">
-              <input type="checkbox" id="chkBuyPC" onchange="toggleSection('chkBuyPC', 'fieldsBuyPC')">
-              🛒 Buy PC Offline (Portable via Telegram)
-            </label>
-            <div class="toggle-fields" id="fieldsBuyPC">
-              <div class="form-group">
-                <label>Telegram DM / Channel Link</label>
-                <input type="url" id="gBuyLink" placeholder="https://t.me/YourTelegramID">
-              </div>
-              <div class="form-group" style="margin-bottom:0;">
-                <label>Price Text (Default: ₹50)</label>
-                <input type="text" id="gBuyPrice" value="₹50" placeholder="₹50">
-              </div>
-            </div>
-          </div>
-
-          <!-- TOGGLE 3: DOWNLOAD APK -->
-          <div class="toggle-box">
-            <label class="toggle-header">
-              <input type="checkbox" id="chkDownloadAPK" onchange="toggleSection('chkDownloadAPK', 'fieldsDownloadAPK')">
-              ⬇ Download APK (Shortener / Offline)
-            </label>
-            <div class="toggle-fields" id="fieldsDownloadAPK">
-              <div class="form-group">
-                <label>Download Link (Shortener / MediaFire)</label>
-                <input type="url" id="gDownload" placeholder="https://...">
-              </div>
-              <div class="form-group" style="margin-bottom:0;">
-                <label>How to Open Link (YouTube Tutorial URL)</label>
-                <input type="url" id="gTutorial" placeholder="https://youtube.com/...">
-              </div>
-            </div>
-          </div>
-
           <button class="btn-submit" id="postGameBtn" onclick="postNewGame()">🚀 Post Game</button>
 
           <div class="admin-game-list">
@@ -802,18 +632,19 @@
       </div>
     </div>
   </div>
+
   <script>
     // ========================================================
-    // APNE LINKS AUR GOOGLE SCRIPT URL (ALREADY CONNECTED)
+    // APNE LINKS AUR GOOGLE SCRIPT URL YAHAN PASTE KARO
     // ========================================================
     const CONFIG = {
       SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxCH9noGtdScAJxMpB-hU6Q3HA-Kspt30ew8FyNasvkoaL6EZTVz3dMmlwmUUEjNT22/exec",
       DEFAULT_TUTORIAL_LINK: "https://youtube.com/@tpgx69",
       SOCIALS: {
         youtube: "https://youtube.com/@tpgx69",
-        instagram: "https://www.instagram.com/thepankajgamingx",
-        telegram: "https://t.me/tpgx69",
-        x: "https://x.com/thepankajgaming"
+        instagram: "https://instagram.com/",
+        telegram: "https://t.me/",
+        x: "https://x.com/"
       }
     };
 
@@ -833,6 +664,10 @@
 
     // LOAD DATA FROM GOOGLE SHEET
     async function loadData() {
+      if (CONFIG.SCRIPT_URL.includes("YAHAN_APNA")) {
+        document.getElementById("gamesGrid").innerHTML = `<div class="loading-state">⚠️ Pehle code mein apna Google Apps Script URL paste karo!</div>`;
+        return;
+      }
       try {
         const res = await fetch(CONFIG.SCRIPT_URL);
         const data = await res.json();
@@ -860,19 +695,14 @@
       renderGames();
     }
 
-    function escapeAttr(str) {
-      return String(str || "").replace(/'/g, "\\'").replace(/"/g, "&quot;");
-    }
-
     function renderGames() {
       const query = document.getElementById("searchInput").value.toLowerCase();
       const grid = document.getElementById("gamesGrid");
 
       const filtered = allGames.filter(g => {
-        const matchesSearch = (g.name || "").toLowerCase().includes(query);
+        const matchesSearch = g.name.toLowerCase().includes(query);
         if (!matchesSearch) return false;
         if (currentFilter === "All") return true;
-        if (currentFilter === "Web") return Boolean(g.playLink && g.playLink.trim() !== "");
         if (currentFilter === "Offline") return g.mode === "Offline";
         if (currentFilter === "Android") return g.platform === "Android" || g.platform === "Both";
         if (currentFilter === "PC") return g.platform === "PC" || g.platform === "Both";
@@ -885,29 +715,9 @@
       }
 
       grid.innerHTML = filtered.map(g => {
-        const platIcon = g.platform === "PC" ? "💻" : (g.platform === "Both" ? "🎮" : "🤖");
+        const platIcon = g.platform === "PC" ? "💻" : "🤖";
         const modeIcon = g.mode === "Online" ? "📶" : "🎮";
         const tutLink = g.tutorialLink || CONFIG.DEFAULT_TUTORIAL_LINK;
-
-        let actionsHTML = "";
-
-        // 1. PLAY ONLINE BUTTON (Sirf tab dikhega jab playLink diya ho)
-        if (g.playLink && g.playLink.trim() !== "") {
-          actionsHTML += `<button class="btn-play" onclick="openGamePlayer('${escapeAttr(g.playLink)}')">▶ Play Online (Free)</button>`;
-        }
-
-        // 2. BUY PC OFFLINE BUTTON (Sirf tab dikhega jab buyLink diya ho)
-        if (g.buyLink && g.buyLink.trim() !== "") {
-          const priceText = g.buyPrice && g.buyPrice.trim() !== "" ? g.buyPrice : "₹50";
-          actionsHTML += `<a href="${g.buyLink}" target="_blank" class="btn-buy">🛒 Buy PC Offline (${priceText})</a>`;
-        }
-
-        // 3. DOWNLOAD APK + TUTORIAL BUTTON (Sirf tab dikhega jab downloadLink diya ho)
-        if (g.downloadLink && g.downloadLink.trim() !== "") {
-          actionsHTML += `<a href="${g.downloadLink}" target="_blank" class="btn-download">⬇ Download APK</a>`;
-          actionsHTML += `<a href="${tutLink}" target="_blank" class="btn-tutorial">▶ How to Open Link?</a>`;
-        }
-
         return `
           <div class="game-card">
             <div class="poster-box">
@@ -920,34 +730,15 @@
                 <div class="game-name" title="${g.name}">${g.name}</div>
                 <div class="game-size">⬇ ${g.size}</div>
               </div>
-              <div class="card-actions">
-                ${actionsHTML}
-              </div>
+              <a href="${g.downloadLink}" target="_blank" class="btn-download">⬇ Download Now</a>
+              <a href="${tutLink}" target="_blank" class="btn-tutorial">▶ How to Open Link?</a>
             </div>
           </div>
         `;
       }).join("");
     }
 
-    // ========================================================
-    // FULLSCREEN DIRECT GAME PLAYER
-    // ========================================================
-    function openGamePlayer(url) {
-      const overlay = document.getElementById("playerOverlay");
-      const iframe = document.getElementById("gameIframe");
-      iframe.src = url;
-      overlay.style.display = "flex";
-    }
-
-    function exitGame() {
-      const iframe = document.getElementById("gameIframe");
-      iframe.src = "";
-      document.getElementById("playerOverlay").style.display = "none";
-    }
-
-    // ========================================================
-    // ADMIN PANEL LOGIC (5-TAP SECRET TRIGGER + TOGGLES)
-    // ========================================================
+    // SECRET 5-TAP ADMIN TRIGGER
     let tapCount = 0, tapTimer;
     document.getElementById("secretTrigger").addEventListener("click", () => {
       tapCount++;
@@ -968,11 +759,6 @@
       btn.classList.add("active");
       document.getElementById("tabGames").style.display = tab === "games" ? "block" : "none";
       document.getElementById("tabBanner").style.display = tab === "banner" ? "block" : "none";
-    }
-
-    function toggleSection(chkId, fieldsId) {
-      const isChecked = document.getElementById(chkId).checked;
-      document.getElementById(fieldsId).style.display = isChecked ? "block" : "none";
     }
 
     async function verifyAdmin() {
@@ -1038,25 +824,12 @@
       const mode = document.getElementById("gMode").value;
       const sizeNum = document.getElementById("gSizeNum").value.trim();
       const sizeUnit = document.getElementById("gSizeUnit").value;
+      const downloadLink = document.getElementById("gDownload").value.trim();
+      const tutorialLink = document.getElementById("gTutorial").value.trim();
       const file = document.getElementById("gImageFile").files[0];
 
-      const usePlay = document.getElementById("chkPlayOnline").checked;
-      const useBuy = document.getElementById("chkBuyPC").checked;
-      const useDownload = document.getElementById("chkDownloadAPK").checked;
-
-      const playLink = usePlay ? document.getElementById("gPlayLink").value.trim() : "";
-      const buyLink = useBuy ? document.getElementById("gBuyLink").value.trim() : "";
-      const buyPrice = useBuy ? (document.getElementById("gBuyPrice").value.trim() || "₹50") : "";
-      const downloadLink = useDownload ? document.getElementById("gDownload").value.trim() : "";
-      const tutorialLink = useDownload ? document.getElementById("gTutorial").value.trim() : "";
-
-      if (!name || !sizeNum || !file) {
-        alert("Game Name, Size aur Poster Image zaroori hai!");
-        return;
-      }
-
-      if (!playLink && !buyLink && !downloadLink) {
-        alert("Kam se kam ek option (Play Online, Buy PC Offline, ya Download APK) tick karke uska link dalo!");
+      if (!name || !sizeNum || !downloadLink || !file) {
+        alert("Game Name, Size, Download Link aur Image zaroori hai!");
         return;
       }
 
@@ -1065,8 +838,6 @@
 
       try {
         const compressedImg = await compressImage(file, 360, 360);
-        const finalSize = sizeUnit ? `${sizeNum} ${sizeUnit}` : sizeNum;
-
         const res = await fetch(CONFIG.SCRIPT_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -1076,13 +847,10 @@
             name,
             platform,
             mode,
-            size: finalSize,
+            size: `${sizeNum} ${sizeUnit}`,
             downloadLink,
             tutorialLink,
-            image: compressedImg,
-            playLink,
-            buyLink,
-            buyPrice
+            image: compressedImg
           })
         });
         const data = await res.json();
@@ -1090,17 +858,8 @@
           alert("Game live ho gaya!");
           document.getElementById("gName").value = "";
           document.getElementById("gSizeNum").value = "";
-          document.getElementById("gImageFile").value = "";
-          document.getElementById("gPlayLink").value = "";
-          document.getElementById("gBuyLink").value = "";
           document.getElementById("gDownload").value = "";
-          document.getElementById("gTutorial").value = "";
-          ["chkPlayOnline", "chkBuyPC", "chkDownloadAPK"].forEach(id => {
-            document.getElementById(id).checked = false;
-          });
-          ["fieldsPlayOnline", "fieldsBuyPC", "fieldsDownloadAPK"].forEach(id => {
-            document.getElementById(id).style.display = "none";
-          });
+          document.getElementById("gImageFile").value = "";
           loadData();
         } else {
           alert("Error: " + data.message);
